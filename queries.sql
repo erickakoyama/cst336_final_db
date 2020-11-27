@@ -4,11 +4,11 @@
 
 -- Fetch customer by their id
 SELECT * FROM customers
-WHERE idcustomers = 1;
+WHERE customer_id = 1;
 
 -- Fetch pet by their id
 SELECT * FROM pets
-WHERE idpets = 1;
+WHERE pet_id = 1;
 
 -- Fetch pets owned by a certain customer
 SELECT * FROM pets
@@ -18,8 +18,8 @@ WHERE customer_id = 1;
 -- Join in pet and service info
 SELECT pets.name as pet_name, services.name as service_name, date
 FROM schedule
-JOIN services ON services.idservices = schedule.service_id
-JOIN pets ON pets.idpets = schedule.pet_id
+JOIN services ON services.service_id = schedule.service_id
+JOIN pets ON pets.pet_id = schedule.pet_id
 WHERE pet_id = 1;
 
 -- List all services
@@ -34,7 +34,7 @@ SELECT * FROM services
 --
 UPDATE customers
 SET first_name = 'John', last_name = 'Doe'
-WHERE idcustomers = 1;
+WHERE customer_id = 1;
 
 --
 -- Other queries

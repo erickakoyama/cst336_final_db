@@ -2,7 +2,7 @@
 -- -- Table customers
 -- -- -----------------------------------------------------
 -- CREATE TABLE IF NOT EXISTS customers (
---   idcustomers INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+--   customer_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 --   first_name VARCHAR(45) NOT NULL,
 --   last_name VARCHAR(45) NOT NULL,
 --   email VARCHAR(45) NOT NULL,
@@ -26,7 +26,7 @@ VALUES ('Jane', 'Doe', 'jane.doe@gmail.com', '310-222-7777', '123 First Street',
 -- -- Table pets
 -- -- -----------------------------------------------------
 -- CREATE TABLE IF NOT EXISTS pets (
---   idpets INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+--   pet_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 --   name VARCHAR(45) NOT NULL,
 --   age_months INT NULL DEFAULT 0,
 --   breed VARCHAR(45) NULL,
@@ -35,26 +35,26 @@ VALUES ('Jane', 'Doe', 'jane.doe@gmail.com', '310-222-7777', '123 First Street',
 --   INDEX customerId_idx (customer_id ASC),
 --   CONSTRAINT customerId
 --     FOREIGN KEY (customer_id)
---     REFERENCES customers (idcustomers)
+--     REFERENCES customers (customer_id)
 --     ON DELETE RESTRICT
 --     ON UPDATE NO ACTION
 -- );
 
 INSERT INTO pets (name, age_months, breed, customer_id)
-VALUES ('spot', 12, 'jack russell terrier', 0);
+VALUES ('spot', 12, 'jack russell terrier', 1);
 
 INSERT INTO pets (name, age_months, breed, customer_id)
-VALUES ('max', 18, 'pitbull terrier', 1);
+VALUES ('max', 18, 'pitbull terrier', 2);
 
 -- -- -----------------------------------------------------
 -- -- Table services
 -- -- -----------------------------------------------------
 -- CREATE TABLE IF NOT EXISTS services (
---   idservices INT NOT NULL AUTO_INCREMENT,
+--   service_id INT NOT NULL AUTO_INCREMENT,
 --   name VARCHAR(45) NOT NULL,
 --   description VARCHAR(45) NOT NULL,
 --   cost INT NOT NULL,
---   PRIMARY KEY (idservices),
+--   PRIMARY KEY (service_id),
 --   UNIQUE INDEX name_UNIQUE (name ASC)
 -- );
 
@@ -68,7 +68,7 @@ VALUES ('Bath', 'Service includes bathing pet.', 35);
 -- -- Table schedule
 -- -- -----------------------------------------------------
 -- CREATE TABLE IF NOT EXISTS schedule (
---   idschedule INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+--   schedule_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 --   date DATETIME NOT NULL,
 --   service_id INT NOT NULL,
 --   pet_id INT NOT NULL,
@@ -76,12 +76,12 @@ VALUES ('Bath', 'Service includes bathing pet.', 35);
 --   INDEX pet_id_idx (pet_id ASC),
 --   CONSTRAINT schedule_service_id
 --     FOREIGN KEY (service_id)
---     REFERENCES services (idservices)
+--     REFERENCES services (service_id)
 --     ON DELETE NO ACTION
 --     ON UPDATE NO ACTION,
 --   CONSTRAINT schedule_pet_id
 --     FOREIGN KEY (pet_id)
---     REFERENCES pets (idpets)
+--     REFERENCES pets (pet_d)
 --     ON DELETE NO ACTION
 --     ON UPDATE NO ACTION
 -- );
