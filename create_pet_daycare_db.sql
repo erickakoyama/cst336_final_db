@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS customers (
   city VARCHAR(45) NULL,
   state VARCHAR(45) NULL,
   zip INT NULL,
-  password VARCHAR(45) NOT NULL,
+  password VARCHAR(72) NOT NULL,
   UNIQUE INDEX email_UNIQUE (email ASC)
 );
 
